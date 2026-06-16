@@ -51,56 +51,7 @@ const APOSTILA_CONTENT = {
 
       <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 print-bg-white">
         <h4 class="text-xs font-bold text-slate-800 flex items-center gap-1.5 mb-3">📝 Atividade de Fixação — Unidade 1</h4>
-        
-        <div class="space-y-4 text-xs">
-          <div>
-            <p class="font-semibold text-slate-700">Questão 1: Substitua os termos sublinhados pelo <strong>Subject Pronoun</strong> adequado:</p>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
-              <label class="flex items-center justify-between gap-1 bg-white p-2 rounded-lg border border-slate-200">
-                <span>a) <u>The teacher</u> explained...</span>
-                <input type="text" id="u1_q1a" placeholder="Resposta..." class="save-state bg-slate-50 border border-slate-300 rounded px-2 py-1 w-24 text-center focus:outline-none focus:border-babyblue-500">
-              </label>
-              <label class="flex items-center justify-between gap-1 bg-white p-2 rounded-lg border border-slate-200">
-                <span>b) <u>The students</u> are...</span>
-                <input type="text" id="u1_q1b" placeholder="Resposta..." class="save-state bg-slate-50 border border-slate-300 rounded px-2 py-1 w-24 text-center focus:outline-none focus:border-babyblue-500">
-              </label>
-              <label class="flex items-center justify-between gap-1 bg-white p-2 rounded-lg border border-slate-200">
-                <span>c) <u>My brother</u> plays...</span>
-                <input type="text" id="u1_q1c" placeholder="Resposta..." class="save-state bg-slate-50 border border-slate-300 rounded px-2 py-1 w-24 text-center focus:outline-none focus:border-babyblue-500">
-              </label>
-              <label class="flex items-center justify-between gap-1 bg-white p-2 rounded-lg border border-slate-200">
-                <span>d) <u>The telephone</u> is...</span>
-                <input type="text" id="u1_q1d" placeholder="Resposta..." class="save-state bg-slate-50 border border-slate-300 rounded px-2 py-1 w-24 text-center focus:outline-none focus:border-babyblue-500">
-              </label>
-            </div>
-          </div>
-
-          <div class="pt-3 border-t border-slate-200">
-            <p class="font-semibold text-slate-700">Questão 2: Complete com o <strong>Object Pronoun</strong> correspondente (parênteses):</p>
-            <div class="space-y-3 mt-2">
-              <div class="bg-white p-2 rounded-lg border border-slate-200 flex flex-wrap items-center gap-1">
-                <span>a) Can you help</span>
-                <input type="text" id="u1_q2a" placeholder="Digite..." class="save-state bg-slate-50 border border-slate-300 rounded px-1.5 py-0.5 text-center w-24 focus:outline-none focus:border-babyblue-500">
-                <span>(I), please? I don't understand this problem.</span>
-              </div>
-              <div class="bg-white p-2 rounded-lg border border-slate-200 flex flex-wrap items-center gap-1">
-                <span>b) I saw Sarah at the library and talked to</span>
-                <input type="text" id="u1_q2b" placeholder="Digite..." class="save-state bg-slate-50 border border-slate-300 rounded px-1.5 py-0.5 text-center w-24 focus:outline-none focus:border-babyblue-500">
-                <span>(She).</span>
-              </div>
-              <div class="bg-white p-2 rounded-lg border border-slate-200 flex flex-wrap items-center gap-1">
-                <span>c) Oliver bought a new car and drives</span>
-                <input type="text" id="u1_q2c" placeholder="Digite..." class="save-state bg-slate-50 border border-slate-300 rounded px-1.5 py-0.5 text-center w-24 focus:outline-none focus:border-babyblue-500">
-                <span>(It) every day.</span>
-              </div>
-              <div class="bg-white p-2 rounded-lg border border-slate-200 flex flex-wrap items-center gap-1">
-                <span>d) We want to visit our grandparents. We miss</span>
-                <input type="text" id="u1_q2d" placeholder="Digite..." class="save-state bg-slate-50 border border-slate-300 rounded px-1.5 py-0.5 text-center w-24 focus:outline-none focus:border-babyblue-500">
-                <span>(They) so much.</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <p class="text-xs text-slate-600 mb-3">Responda as questões abaixo para testar sua compreensão.</p>
       </div>
     </section>
   `
@@ -109,13 +60,8 @@ const APOSTILA_CONTENT = {
 // Função auxiliar para renderizar conteúdo
 function loadMainContent() {
   const main = document.querySelector('main');
-  main.innerHTML = APOSTILA_CONTENT.intro + APOSTILA_CONTENT.unit1;
-  
-  // Carrega mais unidades aqui conforme necessário
-  loadAllUnits();
-}
-
-function loadAllUnits() {
-  // Função será expandida com o resto do conteúdo
-  console.log('Carregando todas as unidades da apostila...');
+  if (main) {
+    main.innerHTML = APOSTILA_CONTENT.intro + APOSTILA_CONTENT.unit1;
+  }
+  console.log('Conteúdo principal carregado!');
 }

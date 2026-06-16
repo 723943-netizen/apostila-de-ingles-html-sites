@@ -27,6 +27,8 @@ window.addEventListener('load', () => {
       updateChecklist();
     });
   });
+  
+  showNotification('Bem-vindo à Apostila de Inglês RED!', '👋');
 });
 
 function syncEmails(value) {
@@ -41,6 +43,8 @@ function showNotification(message, icon = '✨') {
   const toast = document.getElementById('toast-notification');
   const text = document.getElementById('toast-message');
   const iconEl = document.getElementById('toast-icon');
+
+  if (!toast || !text || !iconEl) return;
 
   text.textContent = message;
   iconEl.textContent = icon;
@@ -72,10 +76,12 @@ function saveCurrentState() {
   localStorage.setItem(CONFIG.STORAGE_KEY, JSON.stringify(appState));
   
   const statusLabel = document.getElementById('save-status');
-  statusLabel.textContent = 'Alterações Salvas!';
-  setTimeout(() => {
-    statusLabel.textContent = 'Progresso Salvo Localmente';
-  }, 1500);
+  if (statusLabel) {
+    statusLabel.textContent = 'Alterações Salvas!';
+    setTimeout(() => {
+      statusLabel.textContent = 'Progresso Salvo Localmente';
+    }, 1500);
+  }
 }
 
 function loadSavedState() {
@@ -120,7 +126,6 @@ function areAllQuestionsAnswered() {
 
   if (!name || !group || !email || !teacher) return false;
 
-  // Aqui você expandiria para validar todas as questões
   return true;
 }
 
@@ -129,24 +134,28 @@ function updateChecklist() {
   const chkEmail = document.getElementById('chk-email');
 
   const allDone = areAllQuestionsAnswered();
-  if (allDone) {
-    chkFields.textContent = 'Completo';
-    chkFields.classList.remove('text-rose-500', 'bg-rose-500/10');
-    chkFields.classList.add('text-emerald-500', 'bg-emerald-500/10');
-  } else {
-    chkFields.textContent = 'Incompleto';
-    chkFields.classList.remove('text-emerald-500', 'bg-emerald-500/10');
-    chkFields.classList.add('text-rose-500', 'bg-rose-500/10');
+  if (chkFields) {
+    if (allDone) {
+      chkFields.textContent = 'Completo';
+      chkFields.classList.remove('text-rose-500', 'bg-rose-500/10');
+      chkFields.classList.add('text-emerald-500', 'bg-emerald-500/10');
+    } else {
+      chkFields.textContent = 'Incompleto';
+      chkFields.classList.remove('text-emerald-500', 'bg-emerald-500/10');
+      chkFields.classList.add('text-rose-500', 'bg-rose-500/10');
+    }
   }
 
-  if (appState.reportSent) {
-    chkEmail.textContent = 'Enviado';
-    chkEmail.classList.remove('text-rose-500', 'bg-rose-500/10');
-    chkEmail.classList.add('text-emerald-500', 'bg-emerald-500/10');
-  } else {
-    chkEmail.textContent = 'Pendente';
-    chkEmail.classList.remove('text-emerald-500', 'bg-emerald-500/10');
-    chkEmail.classList.add('text-rose-500', 'bg-rose-500/10');
+  if (chkEmail) {
+    if (appState.reportSent) {
+      chkEmail.textContent = 'Enviado';
+      chkEmail.classList.remove('text-rose-500', 'bg-rose-500/10');
+      chkEmail.classList.add('text-emerald-500', 'bg-emerald-500/10');
+    } else {
+      chkEmail.textContent = 'Pendente';
+      chkEmail.classList.remove('text-emerald-500', 'bg-emerald-500/10');
+      chkEmail.classList.add('text-rose-500', 'bg-rose-500/10');
+    }
   }
 }
 
@@ -175,11 +184,13 @@ function unlockGabarito() {
 }
 
 function showClearConfirmModal() {
-  document.getElementById('clear-confirm-modal').classList.remove('hidden');
+  const modal = document.getElementById('clear-confirm-modal');
+  if (modal) modal.classList.remove('hidden');
 }
 
 function closeClearConfirmModal() {
-  document.getElementById('clear-confirm-modal').classList.add('hidden');
+  const modal = document.getElementById('clear-confirm-modal');
+  if (modal) modal.classList.add('hidden');
 }
 
 function executeClearProgress() {

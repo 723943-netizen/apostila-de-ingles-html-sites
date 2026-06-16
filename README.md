@@ -40,7 +40,7 @@ apostila-de-ingles-html-sites/
 └── README.md                  # Este arquivo
 ```
 
-## 🎯 Conteúdo Disponível
+## 📖 Conteúdo Disponível
 
 ### Unidade 1: Pronomes Sujeito e Objeto
 - Subject Pronouns (I, You, He, She, It, We, They)
