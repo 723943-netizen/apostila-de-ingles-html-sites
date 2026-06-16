@@ -1,0 +1,122 @@
+/* Configuração Tailwind personalizada */
+:root {
+  --color-brand-50: #fdf2f8;
+  --color-brand-100: #fce7f3;
+  --color-brand-200: #fbcfe8;
+  --color-brand-500: #db2777;
+  --color-brand-600: #be185d;
+  --color-babyblue-50: #f0f9ff;
+  --color-babyblue-100: #e0f2fe;
+  --color-babyblue-200: #bae6fd;
+  --color-babyblue-500: #0ea5e9;
+  --color-babyblue-600: #0284c7;
+  --color-accent-light: #fef3c7;
+  --color-accent-main: #f59e0b;
+  --color-accent-dark: #b45309;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+/* Animação fadeIn */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-\[fadeIn_0\.2s_ease-out\] {
+  animation: fadeIn 0.2s ease-out;
+}
+
+.animate-\[fadeIn_0\.3s_ease-out\] {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Configurações dedicadas para impressão e geração de PDF limpo */
+@media print {
+  .no-print { display: none !important; }
+  #gabarito-section { display: none !important; }
+  .print-shadow-none { box-shadow: none !important; }
+  .print-bg-white { background-color: #ffffff !important; background: #ffffff !important; }
+  body { background-color: #ffffff !important; color: #000000 !important; padding-bottom: 0 !important; margin: 0 !important; }
+  
+  /* Transforma inputs digitáveis em linhas pontilhadas clássicas de apostila impressa */
+  input[type="text"], input[type="email"], textarea {
+    border-bottom: 1.5px dotted #000000 !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    background-color: transparent !important;
+    color: transparent !important; /* Proteção extra para manter em branco na folha impressa */
+    border-radius: 0px !important;
+    box-shadow: none !important;
+  }
+  
+  /* Força a exibição legível e sólida da Data de Entrega no PDF impresso */
+  #delivery_date {
+    color: #475569 !important;
+    border-bottom: none !important;
+    font-weight: 700 !important;
+    background-color: transparent !important;
+  }
+  
+  textarea {
+    border: 1.5px dotted #000000 !important;
+    border-radius: 6px !important;
+    height: 120px !important;
+  }
+
+  /* Estiliza os botões de rádio para aparecerem como círculos vazios normais na impressão */
+  input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1.5px solid #000000 !important;
+    border-radius: 50% !important;
+    width: 14px !important;
+    height: 14px !important;
+    background: transparent !important;
+    display: inline-block !important;
+  }
+  
+  /* Garante espaçamento limpo entre as seções impressas */
+  .page-break { page-break-before: always; }
+  section { page-break-inside: avoid; border: 1px solid #e2e8f0 !important; margin-bottom: 1.5rem !important; }
+}
+
+/* Responsividade e estilos adicionais */
+.babyblue-50 { background-color: var(--color-babyblue-50); }
+.babyblue-100 { background-color: var(--color-babyblue-100); }
+.babyblue-200 { background-color: var(--color-babyblue-200); border-color: var(--color-babyblue-200); }
+.babyblue-500 { background-color: var(--color-babyblue-500); color: white; }
+.babyblue-600 { background-color: var(--color-babyblue-600); }
+.text-babyblue-200 { color: var(--color-babyblue-200); }
+.text-babyblue-500 { color: var(--color-babyblue-500); }
+
+.bg-babyblue-500 { background-color: var(--color-babyblue-500); }
+.bg-babyblue-50 { background-color: var(--color-babyblue-50); }
+.border-babyblue-200 { border-color: var(--color-babyblue-200); }
+.border-babyblue-500 { border-color: var(--color-babyblue-500); }
+
+.hover\:bg-sky-500:hover { background-color: #0ea5e9; }
+.hover\:bg-sky-600:hover { background-color: #0284c7; }
